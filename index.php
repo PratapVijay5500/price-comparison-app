@@ -9,15 +9,23 @@
   .card
   {
 	  width: 100%;
-	  margin:5px;
+	  margin:50px;
 	  border-radius:0px;
     background-color: burlywood;
-    padding: 8px;
+    padding: 25px;
   }
   *{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	/* box-sizing: border-box; */
+}
+html,body
+{
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ padding: 0;
+ overflow-x: hidden;
 }
 .btn{
   /* background-image: linear-gradient(to right, rgb(0, 0, 0), red, yellow); */
@@ -46,7 +54,7 @@
   }
   .btn-amaz{
     display: block;
-	width: 30%;
+	width: 40%;
 	height: 50px;
 	border-radius: 25px;
 	outline: none;
@@ -69,7 +77,7 @@
 }
 .btn-flip{
     display: block;
-	width: 60%;
+	width: 40%;
 	height: 50px;
 	border-radius: 25px;
 	outline: none;
@@ -139,6 +147,20 @@
 	.container{
 		grid-gap: 5rem;
 	}
+  .navbar-brand{
+    text-align: center;
+  }
+
+  .navbar{
+    display: block;
+	width: 100%;
+	height: 20%;
+  text-align: center;
+	background-color: black;
+	/* background-image: linear-gradient(to right, rgb(0, 0, 0), red, yellow); */
+	background-size: 200%;
+	
+  }
   form-control{
 		width: 50%;
 	}
@@ -156,6 +178,7 @@
 	.container{
 		grid-gap: 5rem;
 	}
+
   form-control{
 		width: 50%;
 	}
@@ -174,6 +197,7 @@
 	form-control{
 		width: 50%;
 	}
+
   .btn{
 		width: 50%;
 	}
@@ -192,6 +216,7 @@
 	.container{
 		grid-template-columns: 1fr;
 	}
+
   form-control{
 		width: 50%;
 	}
@@ -220,53 +245,17 @@ body{
 <nav class="navbar navbar-expand-lg navbar-dark btn-dark">
 
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="index.php">Ecommerce Price Comparison Using Web Scrapping</a>
+  <a class="navbar-brand" href="index.php">
+  <h5 class="heading"> Ecommerce Price Comparison Using Web Scrapping</h5>
+  </a>
   <h5 class="heading">Here you can compare prices of a product on various e-commerce platforms..</h5>
 
   <!-- Collapse button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
 
-  <!-- Collapsible content -->
-  <div class="collapse navbar-collapse" id="basicExampleNav">
-
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <!--li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-
-      <!-- Dropdown -->
-      <!--li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu dropdown-dark" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li-->
-
-    </ul>
-    <!-- Links -->
-
-    <!-- <form class="form-inline">
-      <div class="md-form my-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      </div>
-    </form> -->
-  </div>
-  <!-- Collapsible content -->
 
 </nav>
 <!--/.Navbar-->
@@ -389,7 +378,7 @@ foreach($newProduct as $np){
 			
 			
 			</p>
-            <hr>
+            <!-- <hr> -->
           </div>
           <!--Card content-->
 
@@ -460,7 +449,7 @@ if(isset($html->find('span[class="a-size-medium a-color-base a-text-normal"]',0)
 // echo "<pre>";
 // print_r($title);
 // echo "</pre>";
-echo "<span class='float-right'>";
+echo "<span class='float-left'>";
 $price_amaz=[];
 $i=0;
 if(isset($html->find('span[class="a-offscreen"]',0)->plaintext)){
@@ -496,7 +485,7 @@ foreach($newProduct_amaz as $np){
 // echo "</pre>";
 ?>	
 			</p>
-            <hr>
+            <!-- <hr> -->
            <!-- <button type="button" class="btn btn-primary"><a href="https://www.amazon.in/s?k=+<?$amaz_link ?>" id="visitsite">Visit amazon</a></button> -->
           </div>
           <!--Card content-->
