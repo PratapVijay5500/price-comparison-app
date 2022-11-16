@@ -346,6 +346,24 @@ if(isset($html->find('div[class="_30jeq3 _1_WHN1"]',0)->plaintext)){
     break;
    }
 }
+$pic_flip = [];
+$i=0;
+if(isset($html->find('div[class="CXW8mj"]',0)->innertext)){
+  foreach($html->find('div[class="CXW8mj"]')as $p){
+    $pic_flip[$i++]=$p->innertext;
+    if($i>3)
+    break;
+  }
+}
+$rate_flip=[];
+$i=0;
+if(isset($html->find('div[class="gUuXy-"]',0)->plaintext)){
+  foreach($html->find('div[class="gUuXy-"]')as $r){
+    $rate_flip[$i++]=$r->plaintext;
+    if($i>3)
+    break;
+  }
+}
 
 $link_flip=[];
 $i=0;
@@ -359,10 +377,10 @@ if(isset($html->find('a[class="_1fQZEK"]',0)->href)){
 // echo "<pre>";
 // print_r($link_flip);
 // echo "</pre>";
-function fun($title,$price,$link_flip){
-  return "$title $price <button type='button' class='btn-flip btn-primary '><a href='https://www.flipkart.com$link_flip' id='visitsite'>Go To Flipkart</a></button>";
+function fun($title,$price,$pic_flip,$rate_flip,$link_flip){
+  return "$title $price <br> $pic_flip <br>$rate_flip <button type='button' class='btn-flip btn-primary '><a href='https://www.flipkart.com$link_flip' id='visitsite'>Go To Flipkart</a></button>";
 }
-$newProduct = array_map('fun',$title,$price,$link_flip);
+$newProduct = array_map('fun',$title,$price,$pic_flip,$rate_flip,$link_flip);
 // echo "<pre>";
 foreach($newProduct as $np){
   echo "<b> $np </b> ";
@@ -459,6 +477,24 @@ if(isset($html->find('span[class="a-offscreen"]',0)->plaintext)){
     break;
    }
 }
+$pic_amaz = [];
+$i=0;
+if(isset($html->find('div[class="a-section aok-relative s-image-fixed-height"]',0)->innertext)){
+  foreach($html->find('div[class="a-section aok-relative s-image-fixed-height"]')as $p){
+    $pic_amaz[$i++]=$p->innertext;
+    if($i>3)
+    break;
+  }
+}
+$rate_amaz=[];
+$i=0;
+if(isset($html->find('div[class="a-row a-size-small"]',0)->plaintext)){
+  foreach($html->find('div[class="a-row a-size-small"]')as $r){
+    $rate_amaz[$i++]=$r->plaintext;
+    if($i>3)
+    break;
+  }
+}
 
 $link_amaz=[];
 $i=0;
@@ -473,10 +509,10 @@ if(isset($html->find('a[class="a-link-normal s-underline-text s-underline-link-t
 // echo "<pre>";
 // print_r($link_flip);
 // echo "</pre>";
-function fun2($title_amaz,$price_amaz,$link_amaz){
-  return "$title_amaz $price_amaz <button type='button' class='btn-amaz btn-primary '><a href='https://www.amazon.in$link_amaz' id='visitsite'>Go To Amazon</a></button>";
+function fun2($title_amaz,$price_amaz,$pic_amaz,$rate_amaz,$link_amaz){
+  return "$title_amaz $price_amaz <br> $pic_amaz <br> $rate_amaz <button type='button' class='btn-amaz btn-primary '><a href='https://www.amazon.in$link_amaz' id='visitsite'>Go To Amazon</a></button>";
 }
-$newProduct_amaz = array_map('fun2',$title_amaz,$price_amaz,$link_amaz);
+$newProduct_amaz = array_map('fun2',$title_amaz,$price_amaz, $pic_amaz,$rate_amaz, $link_amaz);
 // echo "<pre>";
 foreach($newProduct_amaz as $np){
   echo "<b> $np </b> ";
